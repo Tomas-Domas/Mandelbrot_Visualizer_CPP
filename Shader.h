@@ -1,56 +1,25 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include <math.h>
+#include <cmath>
 
 class Shader{
 public:
 
     static sf::Color linearShading(short numSteps){
-        return {RGB(numSteps%255, 255.f, 255.f)};
+        if (numSteps != -1)
+            return sf::Color(sf::Color::Black);
+        return sf::Color((numSteps*20)%255,0,0);
     }
 
-    static sf::Color RGB(float fH, float fS, float fV) {
-        float fR=0, fG=0, fB = 0;
-        float fC = fV * fS;
-        float fHPrime = fmod(fH / 60.0, 6);
-        float fX = fC * (1 - fabs(fmod(fHPrime, 2) - 1));
-        float fM = fV - fC;
+    static sf::Color RGB(unsigned short h, float s, float v) {
+        float c = v*s;
+        float x = c * (1 - abs((h/60)%2 - 1));
+        float m = v-c;
 
-        if(0 <= fHPrime && fHPrime < 1) {
-            fR = fC;
-            fG = fX;
-            fB = 0;
-        } else if(1 <= fHPrime && fHPrime < 2) {
-            fR = fX;
-            fG = fC;
-            fB = 0;
-        } else if(2 <= fHPrime && fHPrime < 3) {
-            fR = 0;
-            fG = fC;
-            fB = fX;
-        } else if(3 <= fHPrime && fHPrime < 4) {
-            fR = 0;
-            fG = fX;
-            fB = fC;
-        } else if(4 <= fHPrime && fHPrime < 5) {
-            fR = fX;
-            fG = 0;
-            fB = fC;
-        } else if(5 <= fHPrime && fHPrime < 6) {
-            fR = fC;
-            fG = 0;
-            fB = fX;
-        } else {
-            fR = 0;
-            fG = 0;
-            fB = 0;
-        }
+        std::vector<int> rgb(3);
 
-        fR += fM;
-        fG += fM;
-        fB += fM;
-
-        return {(unsigned char)fR, (unsigned char)fG, (unsigned char)fB};
+        switch()
+        rgb = {0,0,0};
     }
 
 };
