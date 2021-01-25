@@ -5,11 +5,11 @@ class Shader{
 public:
 
     static sf::Color linearShading(short i){
-        return {RGB(i%255, 255, 255)};
+        return {RGB(i%255, 255.f, 255.f)};
     }
 
-    static sf::Color RGB(float& fH, float& fS, float& fV) {
-        float fR, fG, fB = 0,0,0;
+    static sf::Color RGB(float fH, float fS, float fV) {
+        float fR=0, fG=0, fB = 0;
         float fC = fV * fS;
         float fHPrime = fmod(fH / 60.0, 6);
         float fX = fC * (1 - fabs(fmod(fHPrime, 2) - 1));
@@ -49,7 +49,7 @@ public:
         fG += fM;
         fB += fM;
 
-        return {fR, fG, fB};
+        return {(unsigned char)fR, (unsigned char)fG, (unsigned char)fB};
     }
 
 };
