@@ -4,8 +4,8 @@
 class Shader{
 public:
 
-    static sf::Color linearShading(short i){
-        return {RGB(i%255, 255.f, 255.f)};
+    static sf::Color linearShading(short numSteps){
+        return {RGB(numSteps%255, 255.f, 255.f)};
     }
 
     static sf::Color RGB(float fH, float fS, float fV) {

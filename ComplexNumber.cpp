@@ -1,19 +1,20 @@
 #include "ComplexNumber.h"
 
 ComplexNumber ComplexNumber::dZ(1,0);
+ComplexNumber ComplexNumber::z(0,0);
 const double ComplexNumber::ARBRITARY_SMALL_NUM(.001f);
 
 ComplexNumber::ComplexNumber(long double _a, long double _b): a(_a),b(_b) {
 }
 
-short ComplexNumber::getNumEscapeSteps(const ComplexNumber& c) {
+short ComplexNumber::getNumEscapeSteps() const {
     dZ.a=1;
     dZ.b=0;
     z.a=0;
     z.b=0;
     for(unsigned short i=0; i<MAX_ITERATIONS; i++){
         //Zn=Z^2+c
-        z=z*z+c;
+        z=z*z+*this;
         //dZn=2dZ*Z
 //        dZ=dZ*z*2;
         if(z.magnitudeSquared()>=ESCAPE_RADIUS_SQUARED)
@@ -30,6 +31,11 @@ long double ComplexNumber::magnitudeSquared() {
 
 ComplexNumber ComplexNumber::operator+(const ComplexNumber& rhs) const {
     return {a+rhs.a,b+rhs.b};
+}
+
+void ComplexNumber::operator+=(const ComplexNumber &rhs) {
+    a+=rhs.a;
+    b+=rhs.b;
 }
 
 ComplexNumber ComplexNumber::operator*(const ComplexNumber &rhs) const {

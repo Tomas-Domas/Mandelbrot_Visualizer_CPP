@@ -8,9 +8,10 @@ class ComplexNumber {
 public:
     long double a, b;
     ComplexNumber(long double a, long double b);
-    short getNumEscapeSteps(const ComplexNumber& c);
+    short getNumEscapeSteps() const;
     long double magnitudeSquared();
     ComplexNumber operator+(const ComplexNumber& rhs) const;
+    void operator+=(const ComplexNumber& rhs);
     ComplexNumber operator*(const ComplexNumber& rhs) const;
-    ComplexNumber operator*(const int lhs) const;
+    ComplexNumber operator*(int lhs) const;
 };
