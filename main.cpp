@@ -2,6 +2,7 @@
 #include <iostream>
 #include <cmath>
 #include "ComplexNumber.h"
+#include "Shader.h"
 
 int main()
 {
@@ -25,7 +26,7 @@ int main()
 
         sf::CircleShape shape(event.type);
         shape.setRadius(sqrt((mouse.x-(window.getSize().x*0.5))*(mouse.x-(window.getSize().x*0.5)) + (mouse.y-(window.getSize().y*0.5))*(mouse.y-(window.getSize().y*0.5))));
-        shape.setFillColor(sf::Color(100, 250, 50));
+        shape.setFillColor(Shader::RGB(255,0,0));
         shape.setOrigin(shape.getRadius() - window.getSize().x*0.5, shape.getRadius() - window.getSize().y*0.5);
 
         window.draw(shape);
