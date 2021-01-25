@@ -1,4 +1,4 @@
-#pragma
+#pragma once
 
 class ComplexNumber {
     static double a; //imaginary component

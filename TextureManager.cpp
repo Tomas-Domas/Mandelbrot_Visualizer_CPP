@@ -1,6 +1,3 @@
-//
-// Created by Isaac Fuenmayor on 12/7/20.
-//
 #include "TextureManager.h"
 
 string TextureManager::imageDir="images/";

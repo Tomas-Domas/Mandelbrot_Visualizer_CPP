@@ -1,7 +1,3 @@
-//
-// Created by Isaac Fuenmayor on 12/7/20.
-//
-
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <unordered_map>
