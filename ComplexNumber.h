@@ -1,9 +1,12 @@
 #pragma once
 
 class ComplexNumber {
-    double a, b;
 public:
+    double a, b;
     ComplexNumber(double a, double b);
-    double magnitudeSquare();
-    ComplexNumber operator+(const ComplexNumber& rhs);
+    double iterate(ComplexNumber c);
+    double magnitudeSquared();
+    ComplexNumber operator+(const ComplexNumber& rhs) const;
+    ComplexNumber operator*(const ComplexNumber& rhs) const;
+    ComplexNumber operator*(const int lhs) const;
 };

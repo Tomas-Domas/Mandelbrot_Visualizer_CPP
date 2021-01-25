@@ -1,6 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <cmath>
+#include "ComplexNumber.h"
 
 int main()
 {
@@ -32,6 +33,12 @@ int main()
 
     }
 
+    ComplexNumber c(5,5);
+    ComplexNumber z(3,2);
+
+    ComplexNumber h = c*z;
+
+    std::cout << h.a << " " << h.b << std::endl;
 
     return 0;
 }
