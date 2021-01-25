@@ -1,15 +1,14 @@
 #include <SFML/Graphics.hpp>
-#include <iostream>
 #include <cmath>
-#include "ComplexNumber.h"
-#include "Shader.h"
+#include "MandelbrotRender.h"
 
 int main()
 {
     sf::ContextSettings settings;
     settings.antialiasingLevel = 16;
-    sf::RenderWindow window(sf::VideoMode(512,512), "tutorial", sf::Style::Close, settings);
-
+    sf::RenderWindow window(sf::VideoMode(1024,1024),
+                            "tutorial", sf::Style::Close, settings);
+    MandelbrotRender mandel(window.getSize());
     while(window.isOpen()){
         window.clear();
         sf::Event event;
@@ -20,26 +19,18 @@ int main()
                     break;
             }
         }
+//        sf::Vector2<int> mouse = sf::Mouse::getPosition(window);
 
-        sf::Vector2<int> mouse = sf::Mouse::getPosition(window);
 
-
-        sf::CircleShape shape(event.type, 2);
-        shape.setRadius(sqrt((mouse.x-(window.getSize().x*0.5))*(mouse.x-(window.getSize().x*0.5)) + (mouse.y-(window.getSize().y*0.5))*(mouse.y-(window.getSize().y*0.5))));
-        shape.setFillColor(Shader::RGB(255,0,0));
-        shape.setOrigin(shape.getRadius() - window.getSize().x*0.5, shape.getRadius() - window.getSize().y*0.5);
-
-        window.draw(shape);
+//        sf::CircleShape shape(event.type);
+//        float r = sqrt((mouse.x-(window.getSize().x*0.5))*(mouse.x-(window.getSize().x*0.5)) + (mouse.y-(window.getSize().y*0.5))*(mouse.y-(window.getSize().y*0.5)));
+//        shape.setRadius(r);
+//        shape.setOrigin(shape.getRadius() - window.getSize().x*0.5, shape.getRadius() - window.getSize().y*0.5);
+//        shape.setFillColor(Shader::linearShading(r*10));
+//        window.draw(shape);
+        mandel.drawRender(window);
         window.display();
-
     }
-
-    ComplexNumber c(5,5);
-    ComplexNumber z(3,2);
-
-    ComplexNumber h = c*z;
-
-    std::cout << h.a << " " << h.b << std::endl;
 
     return 0;
 }
