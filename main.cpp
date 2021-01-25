@@ -24,7 +24,7 @@ int main()
         sf::Vector2<int> mouse = sf::Mouse::getPosition(window);
 
 
-        sf::CircleShape shape(event.type);
+        sf::CircleShape shape(event.type, 2);
         shape.setRadius(sqrt((mouse.x-(window.getSize().x*0.5))*(mouse.x-(window.getSize().x*0.5)) + (mouse.y-(window.getSize().y*0.5))*(mouse.y-(window.getSize().y*0.5))));
         shape.setFillColor(Shader::RGB(255,0,0));
         shape.setOrigin(shape.getRadius() - window.getSize().x*0.5, shape.getRadius() - window.getSize().y*0.5);
