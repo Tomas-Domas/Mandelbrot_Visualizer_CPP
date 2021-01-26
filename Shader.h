@@ -5,15 +5,14 @@
 class Shader{
 public:
 
-    static sf::Color linearShading(short numSteps){
-        if (numSteps != -1)
-            return sf::Color(sf::Color::Black);
-        return sf::Color((numSteps*20)%255,0,0);
+    static sf::Color linearShading(short numSteps) {
+        if (numSteps == -1)
+            return sf::Color(sf::Color::Blue);
+        return HSVtoRGB(numSteps,1,1);
     }
 
-    sf::Color HSVtoRGB(float H, float S, float V)
-    {
-        float C = S * V; // Chroma
+    static sf::Color HSVtoRGB(float H, float S, float V) {
+        float C = S * V;
         float HPrime = std::fmod(H / 60, 6.f); // H'
         float X = C * (1 - std::fabs(std::fmod(HPrime, 2.f) - 1));
         float M = V - C;
