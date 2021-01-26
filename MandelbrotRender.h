@@ -22,5 +22,5 @@ public:
     void drawRender(sf::RenderWindow& window);
     //TODO:
 //    void zoom(double factor);
-//    void saveImage();
+    void saveImage();
 };
