@@ -8,7 +8,7 @@ int main()
     settings.antialiasingLevel = 16;
     sf::RenderWindow window(sf::VideoMode(1024,1024),
                             "tutorial", sf::Style::Close, settings);
-    MandelbrotRender mandel(window.getSize(), 0.1, );
+//    MandelbrotRender mandel(window.getSize(), 0.1, );
     while(window.isOpen()){
         window.clear();
         sf::Event event;
@@ -26,7 +26,7 @@ int main()
         float r = sqrt((mouse.x-(window.getSize().x*0.5))*(mouse.x-(window.getSize().x*0.5)) + (mouse.y-(window.getSize().y*0.5))*(mouse.y-(window.getSize().y*0.5)));
         shape.setRadius(r);
         shape.setOrigin(shape.getRadius() - window.getSize().x*0.5, shape.getRadius() - window.getSize().y*0.5);
-        shape.setFillColor(Shader::linearShading(r*0.1));
+        shape.setFillColor(Shader::linearShading(r));
         window.draw(shape);
 //        mandel.drawRender(window);
         window.display();
