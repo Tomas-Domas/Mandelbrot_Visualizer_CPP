@@ -1,11 +1,11 @@
 #pragma once
 
 class ComplexNumber {
-    static const int MAX_ITERATIONS=100;
-    static const char ESCAPE_RADIUS_SQUARED = 4;
-    static const double ARBRITARY_SMALL_NUM;
+    static const char ESCAPE_RADIUS_SQUARED;
     static ComplexNumber dZ, z;
 public:
+    static int MAX_ITERATIONS;
+    static double ARBITRARILY_SMALL_NUM;
     long double a, b;
     ComplexNumber(long double a, long double b);
     short getNumEscapeSteps() const;

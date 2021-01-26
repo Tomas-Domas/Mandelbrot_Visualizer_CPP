@@ -18,6 +18,12 @@ int main()
                 case sf::Event::Closed:
                     window.close();
                     break;
+                case sf::Event::MouseButtonPressed:
+                    mandel.zoom(window);
+                    break;
+                case sf::Event::KeyPressed:
+                    mandel.saveImage();
+                    break;
             }
         }
 

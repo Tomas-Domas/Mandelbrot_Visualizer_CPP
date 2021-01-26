@@ -57,9 +57,16 @@ void MandelbrotRender::saveImage() { //TODO: Finish putting the image in a file,
     delete[] pixelArr;
 }
 
-void MandelbrotRender::zoom() {scale*=.4;}
+void MandelbrotRender::zoom() {
+    scale*=.4;
+    rendered = false;
+    ComplexNumber::MAX_ITERATIONS *= 1.2;
+}
 
-void MandelbrotRender::zoom(const Vector2u& mousePos) {
-    origin.a-size.x*.5+mousePos.x;
-    origin.b-size.y*.5+mousePos.y;
+void MandelbrotRender::zoom(sf::RenderWindow& window) {
+    sf::Vector2i mousePos(sf::Mouse::getPosition(window));
+    origin.a+=(mousePos.x - size.y*.5)*scale;
+    origin.b+=(mousePos.y - size.y*.5)*scale;
+
+    zoom();
 }

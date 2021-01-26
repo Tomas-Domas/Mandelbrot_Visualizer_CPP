@@ -3,13 +3,18 @@
 sf::Color Shader::linearShading(short numSteps) {
     if (numSteps == -1)
         return sf::Color(sf::Color::Black);
+    else if (numSteps == -2){
+        return sf::Color(sf::Color::Black);
+    }
     return HSVtoRGB(numSteps,1,1);
 }
 
 sf::Color Shader::logarithmicShading(short numSteps) {
     if (numSteps == -1)
         return sf::Color(sf::Color::Black);
-    return HSVtoRGB(130*log(numSteps+1),1,1);
+    else if (numSteps == -2)
+        return sf::Color(sf::Color::Black);
+    return HSVtoRGB(50*(float)log(numSteps+1),1,1);
 }
 
 sf::Color Shader::HSVtoRGB(float H, float S, float V) {
