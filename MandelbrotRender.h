@@ -18,7 +18,7 @@ class MandelbrotRender {
     Texture texture;
     Sprite sprite;
 public:
-    MandelbrotRender(Vector2u _size, long double _scale=.01, ComplexNumber _origin={0,0});
+    MandelbrotRender(Vector2u _size, long double _scale=.001, ComplexNumber _origin={0,0});
     void drawRender(sf::RenderWindow& window);
     //TODO:
 //    void zoom(double factor);
