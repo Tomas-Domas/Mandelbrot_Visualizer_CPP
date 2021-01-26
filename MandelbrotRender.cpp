@@ -54,3 +54,12 @@ void MandelbrotRender::saveImage() { //TODO: Finish putting the image in a file,
     img.saveToFile("FIXME.png");//FIXME
     delete[] pixelArr;
 }
+
+void MandelbrotRender::zoom() {
+    scale*=.4;
+}
+
+void MandelbrotRender::zoom(ComplexNumber newOrigin) {
+    origin=newOrigin;
+    zoom();
+}

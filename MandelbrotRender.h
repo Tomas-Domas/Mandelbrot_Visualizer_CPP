@@ -18,7 +18,7 @@ class MandelbrotRender {
 public:
     MandelbrotRender(Vector2u _size, long double _scale=.001, ComplexNumber _origin={0,0});
     void drawRender(sf::RenderWindow& window);
-    //TODO:
-//    void zoom(double factor);
+    void zoom();
+    void zoom(ComplexNumber newOrigin);
     void saveImage();
 };
