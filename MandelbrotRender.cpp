@@ -59,7 +59,7 @@ void MandelbrotRender::zoom() {
     scale*=.4;
 }
 
-void MandelbrotRender::zoom(ComplexNumber newOrigin) {
-    origin=newOrigin;
-    zoom();
+void MandelbrotRender::zoom(const Vector2u& mousePos) {
+    origin.a-size.x*.5+mousePos.x;
+    origin.b-size.y*.5+mousePos.y;
 }
