@@ -10,7 +10,7 @@ using sf::Color;
 
 class MandelbrotRender {
     Vector2u size;
-    long double scale;    ///units per pixel
+    long double scale;    ////units per pixel
     ComplexNumber origin;
     Texture texture;
     Sprite sprite;

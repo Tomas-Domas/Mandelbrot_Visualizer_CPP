@@ -57,9 +57,7 @@ void MandelbrotRender::saveImage() { //TODO: Finish putting the image in a file,
     delete[] pixelArr;
 }
 
-void MandelbrotRender::zoom() {
-    scale*=.4;
-}
+void MandelbrotRender::zoom() {scale*=.4;}
 
 void MandelbrotRender::zoom(const Vector2u& mousePos) {
     origin.a-size.x*.5+mousePos.x;
