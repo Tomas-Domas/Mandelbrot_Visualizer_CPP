@@ -27,6 +27,7 @@ void MandelbrotRender::drawRender(sf::RenderWindow& window) {
     window.draw(sprite);
     delete[] pixelArr;
 }
+
 void MandelbrotRender::saveImage() { //TODO: Finish putting the image in a file, and have a list or something
     unsigned int len = size.x*size.y*4;
     Uint8* pixelArr = new Uint8[len];
