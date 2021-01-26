@@ -2,7 +2,7 @@
 
 sf::Color Shader::linearShading(short numSteps) {
     if (numSteps == -1)
-        return sf::Color(sf::Color::Blue);
+        return sf::Color(sf::Color::Black);
     return HSVtoRGB(numSteps,1,1);
 }
 
