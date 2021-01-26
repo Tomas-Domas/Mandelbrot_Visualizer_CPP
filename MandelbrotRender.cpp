@@ -2,11 +2,15 @@
 #include <fstream>
 
 MandelbrotRender::MandelbrotRender(Vector2u _size, long double _scale, ComplexNumber _origin)
-:size(_size), scale(_scale), origin(_origin) {
+:size(_size), scale(_scale), origin(_origin), rendered(false) {
     texture.create(size.x,size.y);
 }
 
 void MandelbrotRender::drawRender(sf::RenderWindow& window) {
+    if(rendered){
+        window.draw(sprite);
+        return;
+    }
     unsigned int len = size.x*size.y*4;
     Uint8* pixelArr = new Uint8[len];
     ComplexNumber point(origin.a-(size.x*.5*scale),origin.b-(size.y*.5*scale)-scale);
@@ -24,8 +28,9 @@ void MandelbrotRender::drawRender(sf::RenderWindow& window) {
     }
     texture.update(pixelArr);
     sprite.setTexture(texture);
-    window.draw(sprite);
+//    window.draw(sprite);
     delete[] pixelArr;
+    rendered=true;
 }
 
 void MandelbrotRender::saveImage() { //TODO: Finish putting the image in a file, and have a list or something
