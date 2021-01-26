@@ -8,7 +8,7 @@ sf::Color Shader::linearShading(short numSteps) {
 
 sf::Color Shader::HSVtoRGB(float H, float S, float V) {
     float C = S * V;
-    float HPrime = std::fmod(H / 60, 6.f); // H'
+    float HPrime = std::fmod(H *0.0233f, 6.f); // H'
     float X = C * (1 - std::fabs(std::fmod(HPrime, 2.f) - 1));
     float M = V - C;
 
