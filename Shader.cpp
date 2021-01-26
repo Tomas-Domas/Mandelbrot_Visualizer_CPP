@@ -6,6 +6,12 @@ sf::Color Shader::linearShading(short numSteps) {
     return HSVtoRGB(numSteps,1,1);
 }
 
+sf::Color Shader::logarithmicShading(short numSteps) {
+    if (numSteps == -1)
+        return sf::Color(sf::Color::Black);
+    return HSVtoRGB(130*log(numSteps+1),1,1);
+}
+
 sf::Color Shader::HSVtoRGB(float H, float S, float V) {
     float C = S * V;
     float HPrime = std::fmod(H *0.0233f, 6.f); // H'

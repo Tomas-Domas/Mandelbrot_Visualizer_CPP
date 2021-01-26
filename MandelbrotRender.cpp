@@ -20,7 +20,8 @@ void MandelbrotRender::drawRender(sf::RenderWindow& window) {
             point.a = origin.a-(size.x*.5*scale);
             point.b += scale;
         }
-        color=Shader::linearShading(point.getNumEscapeSteps());
+//        color=Shader::linearShading(point.getNumEscapeSteps());
+        color=Shader::logarithmicShading(point.getNumEscapeSteps());
         pixelArr[i]   = color.r;
         pixelArr[i+1] = color.g;
         pixelArr[i+2] = color.b;
@@ -43,7 +44,8 @@ void MandelbrotRender::saveImage() { //TODO: Finish putting the image in a file,
             point.a = origin.a-(size.x*.5*scale);
             point.b += scale;
         }
-        color=Shader::linearShading(point.getNumEscapeSteps());
+//        color=Shader::linearShading(point.getNumEscapeSteps());
+        color=Shader::logarithmicShading(point.getNumEscapeSteps());
         pixelArr[i]  =color.r;
         pixelArr[i+1]=color.g;
         pixelArr[i+2]=color.b;
